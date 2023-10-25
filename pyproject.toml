@@ -6,12 +6,6 @@ build-backend = "hatchling.build"
 name = "tping"
 version = "1.0.0"
 description = "EchoRequest and EchoReply Module"
-requires-python = ">=2.0.0"
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-    ]
 dependencies = [
-    "https://github.com/tango3304/tchecksum.git"
-    ]
+    "tchecksum @ git+https://github.com/tango3304/tchecksum.git@main",
+]
