@@ -1,0 +1,14 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tping"
+description = "EchoRequest and EchoReply Module"
+readme = "README.md"
+dependencies = "tchecksum"
+dynamic = ["version"]
+[tool.setuptools.dynamic]
+version = {attr = "src.foo.version"}
+[tool.setuptools_scm]
+write_to = "src/foo/_version.py"
