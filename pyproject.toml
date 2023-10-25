@@ -7,7 +7,7 @@ name = "tping"
 version = "1.0.0"
 description = "EchoRequest and EchoReply Module"
 dependencies = [
-    "tchecksum @ git+https://github.com/tango3304/tchecksum.git@573fab580f96a9abd01ed49e41f05d9050888f79",
+    "tchecksum @ git+https://github.com/tango3304/tchecksum.git",
 ]
 
 [tool.hatch.metadata]
