@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "tping"
-version = "1.0.0"
+version = "1.0.2"
 description = "EchoRequest and EchoReply Module"
 dependencies = [
     "tchecksum@git+https://github.com/tango3304/tchecksum.git@v1.0",
