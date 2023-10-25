@@ -6,6 +6,7 @@ build-backend = "hatchling.build"
 name = "tping"
 version = "3.1.0"
 description = "EchoRequest and EchoReply Module"
+requires-python = "==3.10.*"
 dependencies = [
-  "tchecksum=1.21"
-  ]
+    "tchecksum~=1.21"
+]
