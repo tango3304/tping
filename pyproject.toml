@@ -13,5 +13,5 @@ classifiers = [
     "Operating System :: OS Independent",
     ]
 dependencies = [
-    "tchecksum"
+    "tchecksum @ git+https://$github.com/tango3304/tchecksum.git@master"
     ]
