@@ -1,12 +1,17 @@
 [build-system]
-requires = ["setuptools", "setuptools_scm"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "tping"
-version = "3.1.0"
+version = "1.0.0"
 description = "EchoRequest and EchoReply Module"
-requires-python = "==3.10.*"
+requires-python = ">=2.0.0"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    ]
 dependencies = [
     "tchecksum"
-]
+    ]
