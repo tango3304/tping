@@ -7,5 +7,5 @@ name = "tping"
 version = "3.1.0"
 description = "EchoRequest and EchoReply Module"
 dependencies = [
-  "tchecksum"
+  "tchecksum=1.21"
   ]
