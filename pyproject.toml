@@ -7,5 +7,5 @@ name = "tping"
 version = "1.0.0"
 description = "EchoRequest and EchoReply Module"
 dependencies = [
-    "git+https://github.com/tango3304/tchecksum.git@v1.0.2",
+    "https://github.com/tango3304/tchecksum.git@v1.0.2",
 ]
