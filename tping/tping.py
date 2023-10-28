@@ -1,6 +1,6 @@
 from importlib import import_module
 from string import ascii_letters
-from random import randrange, choices, randint
+from random import choices, randint
 from tchecksum import tchecksum
 socket = import_module('socket')
 
@@ -47,7 +47,6 @@ class PingSocket:
 	# Generate data Length [dataの長さを生成]
 	# Generate data Length Values [dataの長さ分の値を生成]
 	# Return Value string Type [戻り値 文字列型]
-		# random_int = randrange(10, 32, 2)
 		random_int = 32
 		random_values = ''.join(choices(ascii_letters, k=random_int))
 		return random_values
