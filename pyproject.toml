@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "tping"
-version = "1.0.0"
+version = "1.0.1"
 description = "EchoRequest and EchoReply Module"
 requires-python = ">=2.0"
 license = {file = "LICENSE"}
