@@ -2,7 +2,9 @@ from importlib import import_module
 from string import ascii_letters
 from random import choices, randint
 from tchecksum import tchecksum
+from datetime import datetime
 socket = import_module('socket')
+
 
 class PingSocket:
 
@@ -16,31 +18,41 @@ class PingSocket:
 			return exit(1)
 		
 		self.ipaddr = ipaddress
-		self.data = None
 		self.timeout = timeout
-		self.bufsize = 4096
-		self.receive_result = None
-
 
 	def ping_socket(self):
+	# [初期設定]
+		data = None
+		bufsize = 4096
+		receive_result = None
+		send_timestamp = None
+		receive_timestamp = None
+
 		try:
 		# Add Generate data [作成したdataを追加]
 		# Create IMCP Packet [ICMPパケット作成]
-			self.data = PingSocket.generate_ramdom_data()
-			icmp_packet = PingSocket.send_icmp_packet(self.data)
+			data = PingSocket.generate_ramdom_data()
+			icmp_packet = PingSocket.send_icmp_packet(data)
 
 		# Destination Send ICMP Packet [宛先にICMPパケットを送信]
 		# Destination Connection SendPacket And Return RecivePacket [接続できれば、パケットを送信し、受信パケットを返す]
-		# Destination Not Connection Return Timeout[接続できなければ、タイムアウトを返す]
 			with socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP) as ping_socket:
 				ping_socket.settimeout(self.timeout)
 				ping_socket.connect((self.ipaddr,0))
+				send_timestamp = datetime.now()
 				ping_socket.send(icmp_packet)
-				self.receive_result = ping_socket.recv(self.bufsize)
-				return self.receive_result
+				receive_result = ping_socket.recv(bufsize)
+				receive_timestamp = datetime.now() - send_timestamp
+			
+			# Send and Receive Time[送受信の時間]
+				send_receive_timestamp = float(str(receive_timestamp).replace(':', ''))
+				send_receive_timestamp = round(send_receive_timestamp, 3)
+				return receive_result ,send_receive_timestamp
 		except TimeoutError:
-			self.receive_result = 'Timeout'
-			return self.receive_result
+		# Destination Not Connection Return Timeout[接続できなければ、タイムアウトを返す]
+			receive_result = 'Timeout'
+			send_receive_timestamp = None
+			return receive_result , send_receive_timestamp
 	
 	
 	def generate_ramdom_data():
