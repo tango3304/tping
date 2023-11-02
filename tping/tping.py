@@ -1,7 +1,7 @@
 from importlib import import_module
 from string import ascii_letters
 from random import choices, randint
-from tchecksum import tchecksum
+from tchecksum.tchecksum import CheckSum
 from datetime import datetime
 socket = import_module('socket')
 
@@ -85,7 +85,7 @@ class PingSocket:
 	# Calculation Checksum [チェックサムを計算]
 	# Split for Packet ChecksumValue [チェックサム値をパケット用に分割]
 	# tchecksum: https://github.com/tango3304/tchecksum/blob/main/tchecksum/tchecksum.py
-		checksum = tchecksum.CheckSum(icmp_type, icmp_code, icmp_id1, icmp_id2, icmp_seq1, icmp_seq2, data).t_checksum()
+		checksum = CheckSum(icmp_type, icmp_code, icmp_id1, icmp_id2, icmp_seq1, icmp_seq2, data).t_checksum()
 		checksum1 = checksum >> 8
 		checksum2 = ((checksum << 8) & 0xffff) >> 8
 
