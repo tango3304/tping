@@ -58,9 +58,9 @@ class PingSocket:
 		except:
 			# Get ErrorMessage [エラーメッセージ取得]
 				exc_type, exc_message, exc_object = exc_info()
-				print_tb(exc_object)
 				exc_list = format_exception_only(exc_type, exc_message)
 				error_message = ''.join(exc_message for exc_message in exc_list)
+				print_tb(exc_object)
 				print(f'  {error_message}')
 				exit()
 	
