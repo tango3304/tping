@@ -1,10 +1,9 @@
-from importlib import import_module
 from random import randint
 from tchecksum.tchecksum import CheckSum
 from datetime import datetime
 from sys import exit, exc_info
 from traceback import print_tb, format_exception_only
-socket = import_module('socket')
+import socket
 
 
 class PingSocket:
